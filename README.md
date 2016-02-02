@@ -16,9 +16,15 @@ Go to your Sublime Text Packages directory and clone the repository using the co
 
 git clone [https://github.com/JeisonJHA/Delphi-API](https://github.com/JeisonJHA/Delphi-API) "Delphi API"
 
+## Goto Definition
+
+Go to method definition.
+* ctrl+leftclick(this override ST mouse binding)
+
 ## Delphi method navigation
 
 Navigate between method interface and implementation like Delphi IDE.
+* ctrl+shift+up(this override ST key binding)
 
 ## Limitations
 
