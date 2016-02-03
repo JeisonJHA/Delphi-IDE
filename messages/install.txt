@@ -16,9 +16,15 @@ Go to your Sublime Text Packages directory and clone the repository using the co
 
 git clone [https://github.com/JeisonJHA/Delphi-API](https://github.com/JeisonJHA/Delphi-API) "Delphi API"
 
+## Goto Definition
+
+Go to method definition.
+* ctrl+leftclick(this override ST mouse binding)
+
 ## Delphi method navigation
 
 Navigate between method interface and implementation like Delphi IDE.
+* ctrl+shift+up(this override ST key binding)
 
 ## Limitations
 
@@ -26,21 +32,21 @@ All plugins of this pack is based on this syntax: [sublime-delphi-language](http
     
 ## Next steps
     ## Method Comment
-    
-    This insert the comment of the method that the cursor is on.
+  	
+  	This insert the comment of the method that the cursor is on.
   
-    Ex:
-    /// <summary>
-    ///  Comment of the method
-    /// </summary>
-    /// <param name="ParamName">
-    /// </param>
-    /// <returns>
-    ///  Return type
-    /// </returns>
-    /// <remarks>
-    ///  Author
-    /// </remarks>
+  	Ex:
+  	/// <summary>
+  	///  Comment of the method
+  	/// </summary>
+  	/// <param name="ParamName">
+  	/// </param>
+  	/// <returns>
+  	///  Return type
+  	/// </returns>
+  	/// <remarks>
+  	///  Author
+  	/// </remarks>
   
     ## Add TAG
     
@@ -66,7 +72,7 @@ All plugins of this pack is based on this syntax: [sublime-delphi-language](http
     
     Syncronize the parameters of the method of implementation and interface with the method that is in scope.
     
-  ## Formatter
+	## Formatter
 
-    File formats that use the theme "Pascal" or "Delphi" and are with encoding 
-    "Western (Windowns 1252)".
+		File formats that use the theme "Pascal" or "Delphi" and are with encoding 
+		"Western (Windowns 1252)".
