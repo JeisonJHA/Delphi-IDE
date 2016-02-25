@@ -1,0 +1,7 @@
+{
+  // Formatter
+  // "path_formatter": "C:\\MyFormatter.exe",
+  "auto_format": false,
+  "encode": "'Western (Windows 1252)'",
+  "validate_encode": false
+}

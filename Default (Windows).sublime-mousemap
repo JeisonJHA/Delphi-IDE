@@ -3,7 +3,7 @@
         "button": "button1", 
         "count": 1, 
         "modifiers": ["ctrl"],
-        "press_command": "drag_select",
+        "press_command": "click",
         "command": "goto_definition"
     }
 ]
