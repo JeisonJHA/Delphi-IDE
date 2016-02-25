@@ -1,13 +1,5 @@
-## Goto Definition
+## UPDATE!!
 
-Go to method definition.
-* ctrl+leftclick**(THIS OVERRIDE ST MOUSE BINDING)**
-
-## Delphi method navigation
-
-Navigate between method interface and implementation like Delphi IDE.
-* ctrl+shift+up**(THIS OVERRIDE ST KEY BINDING)**
-    
 ## Formatter
 
 File formats that use the theme "Pascal" or "Delphi".
@@ -18,10 +10,6 @@ Configurations:
 * "encode": "'Western (Windows 1252)'"
 * "validate_encode": false
 
-## Limitations
-
-All plugins of this pack is based on this syntax: https://bitbucket.org/JeisonJHA/sublime-delphi-language.
-    
 ## Next steps
     ## Method Comment
     

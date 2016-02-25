@@ -3,12 +3,12 @@ Some functions to make your life a little easy programming delphi on ST.
 This plugin will have a lot of basic functions. 
 
 ## Installation
-The recommended method of installation is via [Package Control](https://packagecontrol.io/). It will download upgrades to your packages automatically. -->
+The recommended method of installation is via [Package Control](https://packagecontrol.io/). It will download upgrades to your packages automatically.
 
 ### Package Control
 
 * Follow instructions on [https://packagecontrol.io/installation](https://packagecontrol.io/installation)
-* Install using Package Control: Install > Delphi API
+* Install using Package Control: Install > Delphi-API
 
 ### Using Git
 
@@ -19,16 +19,26 @@ git clone [https://github.com/JeisonJHA/Delphi-API](https://github.com/JeisonJHA
 ## Goto Definition
 
 Go to method definition.
-* ctrl+leftclick(this override ST mouse binding)
+* ctrl+leftclick**(THIS OVERRIDE ST MOUSE BINDING)**
 
 ## Delphi method navigation
 
 Navigate between method interface and implementation like Delphi IDE.
-* ctrl+shift+up(this override ST key binding)
+* ctrl+shift+up**(THIS OVERRIDE ST KEY BINDING)**
+    
+## Formatter
+
+File formats that use the theme "Pascal" or "Delphi".
+It uses the [jedi formatter](http://jedicodeformat.sourceforge.net/), but you can change to use the one of your preference.
+Configurations:
+* "path_formatter": "C:\MyFormatter.exe"
+* "auto_format": true
+* "encode": "'Western (Windows 1252)'"
+* "validate_encode": false
 
 ## Limitations
 
-All plugins of this pack is based on this syntax: [sublime-delphi-language](https://bitbucket.org/JeisonJHA/sublime-delphi-language).
+Except the formatter all other plugins of this pack is based on this syntax: [sublime-delphi-language](https://bitbucket.org/JeisonJHA/sublime-delphi-language).
     
 ## Next steps
     ## Method Comment
@@ -71,8 +81,3 @@ All plugins of this pack is based on this syntax: [sublime-delphi-language](http
     ## Syncronize method declaration
     
     Syncronize the parameters of the method of implementation and interface with the method that is in scope.
-    
-	## Formatter
-
-		File formats that use the theme "Pascal" or "Delphi" and are with encoding 
-		"Western (Windowns 1252)".
