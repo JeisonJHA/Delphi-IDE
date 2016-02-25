@@ -1,4 +1,11 @@
 {
+  // Example: 
+  // "%B %d, %Y" = January 01, 2015
+  // "%d/%m/%y"  = 01/01/15
+  // "%Y-%m-%d %H:%M:%S" = 2015-01-01 18:21:26
+  // doc: https://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior
+  "datetimeformat": "%B %d, %Y",
+  
   // Formatter
   // "path_formatter": "C:\\MyFormatter.exe",
   "auto_format": false,
