@@ -19,11 +19,13 @@ git clone [https://github.com/JeisonJHA/Delphi-API](https://github.com/JeisonJHA
 ## Goto Definition
 
 Go to method definition.
+
 * ctrl+leftclick**(THIS OVERRIDE ST MOUSE BINDING)**
 
 ## Delphi method navigation
 
 Navigate between method interface and implementation like Delphi IDE.
+
 * ctrl+shift+up**(THIS OVERRIDE ST KEY BINDING)**
     
 ## Formatter
@@ -31,6 +33,7 @@ Navigate between method interface and implementation like Delphi IDE.
 File formats that use the theme "Pascal" or "Delphi".
 It uses the [jedi formatter](http://jedicodeformat.sourceforge.net/), but you can change to use the one of your preference.
 Configurations:
+
 * "path_formatter": "C:\MyFormatter.exe"
 * "auto_format": true
 * "encode": "'Western (Windows 1252)'"
