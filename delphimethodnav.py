@@ -2,7 +2,7 @@ import sublime_plugin
 import re
 
 
-class delphimethodnavCommand(sublime_plugin.TextCommand):
+class DelphiMethodNavCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
         print("Delphi method navigated")
@@ -27,6 +27,7 @@ class delphimethodnavCommand(sublime_plugin.TextCommand):
         selector = view.find_by_selector
         classdefinition = selector('entity.class.interface.delphi')
         class_name_region = selector('entity.name.section.delphi')
+        self.filterValidClasses()
         methoddeclaration = selector('meta.function.delphi')
         classnamemethod = selector('entity.class.name.delphi')
         method_regions = selector('function.implementation.delphi')
@@ -35,6 +36,29 @@ class delphimethodnavCommand(sublime_plugin.TextCommand):
             self.findMethodInterface()
         else:
             self.findMethodImplementation()
+
+    def filterValidClasses(self):
+        global classdefinition
+        global class_name_region
+        exclude_list = []
+        for s in classdefinition:
+            rowa, _ = self.view.rowcol(s.a)
+            rowb, _ = self.view.rowcol(s.b)
+            rowbb = rowb - 1
+            if (rowa == rowb) or (rowa == rowbb):
+                exclude_list.append(s)
+
+        for r in exclude_list:
+            classdefinition.remove(r)
+
+        exclude_name_list = []
+        for r in exclude_list:
+            for s in class_name_region:
+                if r.contains(s):
+                    exclude_name_list.append(s)
+
+        for r in exclude_name_list:
+            class_name_region.remove(r)
 
     def params(self, region):
         params_region = view.find_by_selector(
@@ -102,12 +126,12 @@ class delphimethodnavCommand(sublime_plugin.TextCommand):
                  if s.intersects(class_region)][0]).strip()
 
             methoddecfiltered = [s for s in methoddeclaration
-                                 if research('(\\b)' + class_name +
-                                             '(\\b)', vsubstr(s)) is not None]
+                                 if research('(?i)(\\b)' + class_name + '(\\b)',
+                                             vsubstr(s)) is not None]
             name = name()
             methoddecfiltered = [s for s in methoddecfiltered
-                                 if research('(\\b)' + name +
-                                             '(\\b)', vsubstr(s)) is not None]
+                                 if research('(?i)(\\b)' + name + '(\\b)',
+                                             vsubstr(s)) is not None]
 
         except IndexError:
             implementation = view.find_by_selector(
@@ -118,8 +142,8 @@ class delphimethodnavCommand(sublime_plugin.TextCommand):
 
             name = name()
             methoddecfiltered = [s for s in methoddecfiltered
-                                 if research('(\\b)' + name +
-                                             '(\\b)', vsubstr(s)) is not None]
+                                 if research('(?i)(\\b)' + name + '(\\b)',
+                                             vsubstr(s)) is not None]
 
             methoddecfiltered2 = list(methoddecfiltered)
 
@@ -164,8 +188,8 @@ class delphimethodnavCommand(sublime_plugin.TextCommand):
             class_name = vsubstr(classnamemethodfiltered[0])
 
             classnamefiltered = [s for s in class_name_region
-                                 if research('(\\b)' + class_name +
-                                             '(\\b)', vsubstr(s)) is not None]
+                                 if research('(?i)(\\b)' + class_name + '(\\b)',
+                                             vsubstr(s)) is not None]
 
             classdefinitionfiltered = classdefinition
 
@@ -181,8 +205,8 @@ class delphimethodnavCommand(sublime_plugin.TextCommand):
                 s for s in methoddeclaration if classdefinitionfiltered[0].contains(s)]
 
             methoddecfiltered = [s for s in methoddecfiltered
-                                 if research('(\\b)' + method_name +
-                                             '(\\b)', vsubstr(s)) is not None]
+                                 if research('(?i)(\\b)' + method_name + '(\\b)',
+                                             vsubstr(s)) is not None]
 
         else:
             interface = view.find_by_selector('interface.block.delphi')
@@ -190,8 +214,8 @@ class delphimethodnavCommand(sublime_plugin.TextCommand):
                 s for s in functionname if interface[0].contains(s)]
 
             methoddecfiltered = [s for s in methoddecfiltered
-                                 if research('(\\b)' + method_name +
-                                             '(\\b)', vsubstr(s)) is not None]
+                                 if research('(?i)(\\b)' + method_name + '(\\b)',
+                                             vsubstr(s)) is not None]
 
             for s in classdefinition:
                 methoddecfiltered = [

@@ -1,4 +1,4 @@
 [
-    { "keys": ["ctrl+shift+up"], "command": "delphimethodnav" },
+    { "keys": ["ctrl+shift+up"], "command": "delphi_method_nav" },
     { "keys": ["ctrl+shift+g"], "command": "add_tag" }
 ]
