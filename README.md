@@ -35,36 +35,46 @@ It uses the [jedi formatter](http://jedicodeformat.sourceforge.net/), but you ca
 Configurations:
 
 * "path_formatter": "C:\MyFormatter.exe"
+* "other_params": ""
 * "auto_format": true
 * "encode": "'Western (Windows 1252)'"
 * "validate_encode": false
+
+## Doc
+
+Now you can doc yours methods, propertys, classes, interfaces and records.
+To use put the cursor on the scope of what you want to doc and push the trigger.
+You can choose XML or JAVADOC.
+
+Method Ex:
+/// <summary>
+/// 
+/// </summary>
+/// <remarks>
+/// Owner: Jeison.Azevedo Date: March 10, 2016
+/// </remarks>
+/// <param name="ParamName">
+/// </param>
+/// <exception>
+/// 
+/// </exception>
+
+* ctrl + shift + m 
+
+## Add TAG
+
+This insert the user TAG in the line of the cursor
+
+Ex:
+// Jeison.Azevedo - March 10, 2016
+
+* ctrl + shift + g
 
 ## Limitations
 
 Except the formatter all other plugins of this pack is based on this syntax: [sublime-delphi-language](https://bitbucket.org/JeisonJHA/sublime-delphi-language).
     
 ## Next steps
-    ## Method Comment
-  	
-  	This insert the comment of the method that the cursor is on.
-  
-  	Ex:
-  	/// <summary>
-  	///  Comment of the method
-  	/// </summary>
-  	/// <param name="ParamName">
-  	/// </param>
-  	/// <returns>
-  	///  Return type
-  	/// </returns>
-  	/// <remarks>
-  	///  Author
-  	/// </remarks>
-  
-    ## Add TAG
-    
-    This insert the user TAG in the line of the cursor
-    
     ## Declare Method
     
     This works like the "Ctrl+Shift+C" of the Delphi, the diference is that this works only
