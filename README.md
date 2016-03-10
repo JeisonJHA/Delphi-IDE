@@ -43,10 +43,14 @@ Configurations:
 ## Doc
 
 Now you can doc yours methods, propertys, classes, interfaces and records.
+
 To use put the cursor on the scope of what you want to doc and push the trigger.
+
 You can choose XML or JAVADOC.
 
 Method Ex:
+```
+#!delphi
 /// <summary>
 /// 
 /// </summary>
@@ -58,6 +62,7 @@ Method Ex:
 /// <exception>
 /// 
 /// </exception>
+```
 
 * ctrl + shift + m 
 
@@ -66,7 +71,10 @@ Method Ex:
 This insert the user TAG in the line of the cursor
 
 Ex:
+```
+#!delphi
 // Jeison.Azevedo - March 10, 2016
+```
 
 * ctrl + shift + g
 
