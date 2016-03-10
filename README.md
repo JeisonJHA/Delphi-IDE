@@ -50,7 +50,6 @@ You can choose XML or JAVADOC.
 
 Method Ex:
 ```
-#!delphi
 /// <summary>
 /// 
 /// </summary>
@@ -72,7 +71,6 @@ This insert the user TAG in the line of the cursor
 
 Ex:
 ```
-#!delphi
 // Jeison.Azevedo - March 10, 2016
 ```
 
