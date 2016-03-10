@@ -11,5 +11,9 @@
   // "other_params": "",
   "auto_format": false,
   "encode": "Western (Windows 1252)",
-  "validate_encode": false
+  "validate_encode": false,
+
+  // Doc
+  // Choose the type of the doc: XML or JAVADOC
+  "doctype": "XML"
 }
