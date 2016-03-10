@@ -8,6 +8,7 @@
   
   // Formatter
   // "path_formatter": "C:\\MyFormatter.exe",
+  // "other_params": "",
   "auto_format": false,
   "encode": "Western (Windows 1252)",
   "validate_encode": false

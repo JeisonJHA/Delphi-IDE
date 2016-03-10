@@ -5,38 +5,65 @@ import os
 import threading
 import stat
 import locale
-from winreg import *
 
 
 def plugin_loaded():
     def changeRegistry():
+        import winreg as wr
         keyVal = r'Software\CodeGear\BDS\6.0\Jedi\JCF\General'
         try:
-            key = OpenKey(HKEY_CURRENT_USER, keyVal, 0, KEY_ALL_ACCESS)
+            key = wr.OpenKey(wr.HKEY_CURRENT_USER, keyVal, 0,
+                             wr.KEY_ALL_ACCESS)
         except:
-            key = CreateKey(HKEY_CURRENT_USER, keyVal)
-        SetValueEx(key, "FormatConfigFileName", 0, REG_SZ,
-                   sublime.packages_path() + "\Delphi-API\JCFSettings.cfg")
-        CloseKey(key)
+            key = wr.CreateKey(wr.HKEY_CURRENT_USER, keyVal)
+        wr.SetValueEx(key, "FormatConfigFileName", 0, wr.REG_SZ,
+                      sublime.packages_path() + "\Delphi-API\JCFSettings.cfg")
+        wr.CloseKey(key)
 
     changeRegistry()
 
-default_formatter = sublime.packages_path() + "\Delphi-API\JCF.exe"
-default_param = ' -F -inplace -clarify '
+
+def exeIsRunning(exe):
+    def path_leaf(path):
+        import ntpath
+        head, tail = ntpath.split(path)
+        return tail or ntpath.basename(head)
+
+    filename = path_leaf(exe)
+    cmd = 'WMIC PROCESS get Caption'
+    proc = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
+    for line in proc.stdout:
+        lin = line.split()
+        try:
+            if lin[0].decode("utf-8") == filename:
+                return True
+        except:
+            pass
+    return False
 
 
 class TFormatter(object):
     """docstring for TFormatter"""
 
     def formatCode(self, view):
+        default_formatter = sublime.packages_path() + "\Delphi-API\JCF.exe"
         print('formatCode')
+        s = sublime.load_settings("delphi-api.sublime-settings")
+        path_formatter = s.get("path_formatter", default_formatter)
+        if view.get_status('formatter'):
+            sublime.message_dialog('File is already formatting.')
+            return
+
+        if exeIsRunning(path_formatter):
+            sublime.message_dialog('Executable is already running.')
+            return
+
         view.erase_regions('codeerror')
         path = view.file_name()
 
         if (path is None):
             return
 
-        s = sublime.load_settings("delphi-api.sublime-settings")
         auto_format = s.get("auto_format", False)
 
         if not auto_format:
@@ -64,7 +91,6 @@ class TFormatter(object):
         if isReadonly(path):
             return
 
-        path_formatter = s.get("path_formatter", default_formatter)
         use_default_formatter = default_formatter == path_formatter
         ThreadFormatter = TFormatterThread(
             view, path_formatter, path, use_default_formatter)
@@ -90,9 +116,13 @@ class TFormatterThread(threading.Thread):
         self.formatter = self.getFormatterObject(default)
 
     def run(self):
-        self.view.set_status('formatter', 'Formatter: Formatting...')
-        self.formatter.run_command(self.exe, self.param)
-        self.view.erase_status('formatter')
+        try:
+            self.view.set_status('formatter', 'Formatter: Formatting...')
+            self.formatter.run_command(self.exe, self.param)
+        except FileNotFoundError:
+            raise
+        finally:
+            self.view.erase_status('formatter')
 
     def getFormatterObject(self, default):
         if default:
@@ -107,16 +137,19 @@ class TFormatterThread(threading.Thread):
             self.view = view
 
         def run_command(self, exe, param):
-            command = ('"' + exe + '" "' + param + '"')
+            s = sublime.load_settings("delphi-api.sublime-settings")
+            Other_params = s.get("other_params", '')
 
-            startupinfo = subprocess.STARTUPINFO()
-            startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+            command = ('"' + exe + '" ' + Other_params + ' "' + param + '"')
+
+            startup_info = subprocess.STARTUPINFO()
+            startup_info.dwFlags |= subprocess.STARTF_USESHOWWINDOW
             p = subprocess.Popen(
                 command,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 stdin=subprocess.PIPE,
-                startupinfo=startupinfo
+                startupinfo=startup_info
             )
             (out, err) = p.communicate()
 
@@ -145,16 +178,17 @@ class TFormatterThread(threading.Thread):
             self.view = view
 
         def run_command(self, exe, param):
+            default_param = ' -F -inplace -clarify '
             command = ('"' + exe + '"' + default_param + '"' + param + '"')
 
-            startupinfo = subprocess.STARTUPINFO()
-            startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+            startup_info = subprocess.STARTUPINFO()
+            startup_info.dwFlags |= subprocess.STARTF_USESHOWWINDOW
             p = subprocess.Popen(
                 command,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 stdin=subprocess.PIPE,
-                startupinfo=startupinfo
+                startupinfo=startup_info
             )
             (out, err) = p.communicate()
 
@@ -198,7 +232,6 @@ class TFormatterThread(threading.Thread):
 
                 pt = sview.text_point(int(region[0]) - 1, int(region[1]))
                 word = sview.word(pt)
-                print('teste')
                 sview.add_regions('codeerror', [word], 'invalid',
                                   'Packages/Delphi-API/warning.png', style)
                 sview.show(word)
@@ -219,6 +252,6 @@ class TFormatterThread(threading.Thread):
 
 class TEventListener(sublime_plugin.EventListener):
 
-    def on_post_save(self, view):
+    def on_pre_save(self, view):
         Formatter = TFormatter()
         Formatter.formatCode(view)
