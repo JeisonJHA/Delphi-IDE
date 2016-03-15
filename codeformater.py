@@ -17,7 +17,7 @@ def plugin_loaded():
         except:
             key = wr.CreateKey(wr.HKEY_CURRENT_USER, keyVal)
         wr.SetValueEx(key, "FormatConfigFileName", 0, wr.REG_SZ,
-                      sublime.packages_path() + "\Delphi-API\JCFSettings.cfg")
+                      sublime.packages_path() + "\Delphi-IDE\JCFSettings.cfg")
         wr.CloseKey(key)
 
     changeRegistry()
@@ -46,9 +46,9 @@ class TFormatter(object):
     """docstring for TFormatter"""
 
     def formatCode(self, view):
-        default_formatter = sublime.packages_path() + "\Delphi-API\JCF.exe"
+        default_formatter = sublime.packages_path() + "\Delphi-IDE\JCF.exe"
         print('formatCode')
-        s = sublime.load_settings("delphi-api.sublime-settings")
+        s = sublime.load_settings("delphi-ide.sublime-settings")
         path_formatter = s.get("path_formatter", default_formatter)
         if view.get_status('formatter'):
             sublime.message_dialog('File is already formatting.')
@@ -137,7 +137,7 @@ class TFormatterThread(threading.Thread):
             self.view = view
 
         def run_command(self, exe, param):
-            s = sublime.load_settings("delphi-api.sublime-settings")
+            s = sublime.load_settings("delphi-ide.sublime-settings")
             Other_params = s.get("other_params", '')
 
             command = ('"' + exe + '" ' + Other_params + ' "' + param + '"')
@@ -233,7 +233,7 @@ class TFormatterThread(threading.Thread):
                 pt = sview.text_point(int(region[0]) - 1, int(region[1]))
                 word = sview.word(pt)
                 sview.add_regions('codeerror', [word], 'invalid',
-                                  'Packages/Delphi-API/warning.png', style)
+                                  'Packages/Delphi-IDE/warning.png', style)
                 sview.show(word)
 
             else:

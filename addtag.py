@@ -11,7 +11,7 @@ class AddTagCommand(sublime_plugin.TextCommand):
 
     def DefineComment(self):
         print("AddTag")
-        settings = sublime.load_settings('delphi-api.sublime-settings')
+        settings = sublime.load_settings('delphi-ide.sublime-settings')
         datetimeformat = settings.get("datetimeformat", "%d/%m/%Y")
 
         line = os.environ['USERNAME'].title() + ' - ' + \

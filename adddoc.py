@@ -9,7 +9,7 @@ methoddocXML = True
 
 def readSetting():
     global datetimeformat, methoddocXML
-    settings = sublime.load_settings('delphi-api.sublime-settings')
+    settings = sublime.load_settings('delphi-ide.sublime-settings')
     if not (settings.get("doctype", "XML") in ["XML", "JAVADOC"]):
         sublime.message_dialog('"doctype" not configured.')
         return

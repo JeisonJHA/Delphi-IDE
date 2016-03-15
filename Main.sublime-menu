@@ -12,29 +12,29 @@
                 "children":
                 [
                     {
-                        "caption": "Delphi-API",
+                        "caption": "Delphi-IDE",
                         "children":
                         [
                             {
                                 "command": "open_file",
-                                "args": {"file": "${packages}/Delphi-API/README.md"},
+                                "args": {"file": "${packages}/Delphi-IDE/README.md"},
                                 "caption": "README"
                             },
                             { "caption": "-" },
                             {
                                 "command": "open_file",
-                                "args": {"file": "${packages}/Delphi-API/delphi-api.sublime-settings"},
+                                "args": {"file": "${packages}/Delphi-IDE/delphi-ide.sublime-settings"},
                                 "caption": "Settings - Default"
                             },                            {
                                 "command": "open_file",
-                                "args": {"file": "${packages}/User/delphi-api.sublime-settings"},
+                                "args": {"file": "${packages}/User/delphi-ide.sublime-settings"},
                                 "caption": "Settings - User"
                             },
                             { "caption": "-" },
                             {
                                 "command": "open_file",
                                 "args": {
-                                    "file": "${packages}/Delphi-API/Default (OSX).sublime-keymap",
+                                    "file": "${packages}/Delphi-IDE/Default (OSX).sublime-keymap",
                                     "platform": "OSX"
                                 },
                                 "caption": "Key Bindings – Default"
@@ -42,7 +42,7 @@
                             {
                                 "command": "open_file",
                                 "args": {
-                                    "file": "${packages}/Delphi-API/Default (Linux).sublime-keymap",
+                                    "file": "${packages}/Delphi-IDE/Default (Linux).sublime-keymap",
                                     "platform": "Linux"
                                 },
                                 "caption": "Key Bindings – Default"
@@ -50,7 +50,7 @@
                             {
                                 "command": "open_file",
                                 "args": {
-                                    "file": "${packages}/Delphi-API/Default (Windows).sublime-keymap",
+                                    "file": "${packages}/Delphi-IDE/Default (Windows).sublime-keymap",
                                     "platform": "Windows"
                                 },
                                 "caption": "Key Bindings – Default"
@@ -83,7 +83,7 @@
                             {
                                 "command": "open_file",
                                 "args": {
-                                    "file": "${packages}/Delphi-API/Default (OSX).sublime-mousemap",
+                                    "file": "${packages}/Delphi-IDE/Default (OSX).sublime-mousemap",
                                     "platform": "OSX"
                                 },
                                 "caption": "Mouse Bindings – Default"
@@ -91,7 +91,7 @@
                             {
                                 "command": "open_file",
                                 "args": {
-                                    "file": "${packages}/Delphi-API/Default (Linux).sublime-mousemap",
+                                    "file": "${packages}/Delphi-IDE/Default (Linux).sublime-mousemap",
                                     "platform": "Linux"
                                 },
                                 "caption": "Mouse Bindings – Default"
@@ -99,7 +99,7 @@
                             {
                                 "command": "open_file",
                                 "args": {
-                                    "file": "${packages}/Delphi-API/Default (Windows).sublime-mousemap",
+                                    "file": "${packages}/Delphi-IDE/Default (Windows).sublime-mousemap",
                                     "platform": "Windows"
                                 },
                                 "caption": "Mouse Bindings – Default"

@@ -1,4 +1,4 @@
-# Delphi-API
+# Delphi-IDE
 Some functions to make your life a little easy programming delphi on ST. 
 This plugin will have a lot of basic functions. 
 
@@ -8,13 +8,13 @@ The recommended method of installation is via [Package Control](https://packagec
 ### Package Control
 
 * Follow instructions on [https://packagecontrol.io/installation](https://packagecontrol.io/installation)
-* Install using Package Control: Install > Delphi-API
+* Install using Package Control: Install > Delphi-IDE
 
 ### Using Git
 
 Go to your Sublime Text Packages directory and clone the repository using the command below:
 
-git clone [https://github.com/JeisonJHA/Delphi-API](https://github.com/JeisonJHA/Delphi-API) "Delphi API"
+git clone [https://github.com/JeisonJHA/Delphi-IDE](https://github.com/JeisonJHA/Delphi-IDE) "Delphi IDE"
 
 ## Goto Definition
 
