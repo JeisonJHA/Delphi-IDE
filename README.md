@@ -76,15 +76,27 @@ Ex:
 
 * ctrl + shift + g
 
+## Declare Method
+    
+    This works like the "Ctrl+Shift+C" of the Delphi, the diference is that this works only
+    for the method that is in scope.
+
+## Config    
+  
+    where to create the method
+    "visibility": "protected",
+    if the block configured don't exists it will create it.
+    the block will be created at the end of the class.
+    "create_visibility_block": true
+
+# Know issues:
+    If the command is triggered it will create a new statement, does not validate if it already exists.
+
 ## Limitations
 
 Except the formatter all other plugins of this pack is based on this syntax: [sublime-delphi-language](https://bitbucket.org/JeisonJHA/sublime-delphi-language).
     
 ## Next steps
-    ## Declare Method
-    
-    This works like the "Ctrl+Shift+C" of the Delphi, the diference is that this works only
-    for the method that is in scope.
     
     ## Extract Method
     

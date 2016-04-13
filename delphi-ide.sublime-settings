@@ -15,5 +15,11 @@
 
   // Doc
   // Choose the type of the doc: XML or JAVADOC
-  "doctype": "XML"
+  "doctype": "XML",
+
+  //---- Declare Method
+  // where to create the method
+  "visibility": "protected",
+  // if the block configured don't exists it will create it.
+  "create_visibility_block": true
 }
