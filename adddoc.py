@@ -26,10 +26,13 @@ def tag():
 class AddDocCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
-        print("Add doc")
-        readSetting()
-        DocObjetct = self.GetDocObject()
-        DocObjetct.run()
+        try:
+            print("Add doc")
+            readSetting()
+            DocObjetct = self.GetDocObject()
+            DocObjetct.run()
+        except Exception as e:
+            print(e)
 
     def GetDocObject(self):
         def isIn(word):
@@ -46,6 +49,7 @@ class AddDocCommand(sublime_plugin.TextCommand):
             return ClassDoc(view)
         if isIn('entity.interface.delphi'):
             return InterfaceDoc(view)
+        raise Exception('No doc for this.')
 
 
 class Parser(object):

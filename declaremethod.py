@@ -46,11 +46,13 @@ class declaremethod(sublime_plugin.TextCommand):
         if(view.match_selector(cursor_pt, 'interface.block.delphi') or
             (view.match_selector(cursor_pt, 'program.delphi') and
              view.match_selector(cursor_pt, 'entity.class.interface.delphi'))):
-            self.MethodInterface(edit, view)
+            self.MethodInterface(edit)
         else:
-            self.MethodImplementarion(edit, view)
+            self.MethodImplementarion(edit)
 
-    def MethodInterface(self, edit, view):
+    def MethodInterface(self, edit):
+        view = self.view
+
         def getValidLine():
             if view.match_selector(cursor_pt, 'unit.block.delphi'):
                 implementation = view.find_by_selector(
@@ -126,7 +128,9 @@ class declaremethod(sublime_plugin.TextCommand):
 
         view.insert(edit, pt, '\n' + method)
 
-    def MethodImplementarion(self, edit, view):
+    def MethodImplementarion(self, edit):
+        view = self.view
+
         def validClass(s):
             r1, _ = view.rowcol(s.begin())
             r2, _ = view.rowcol(s.end())

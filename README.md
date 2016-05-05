@@ -81,29 +81,33 @@ Ex:
     This works like the "Ctrl+Shift+C" of the Delphi, the diference is that this works only
     for the method that is in scope.
 
-## Config    
-  
+* Config    
+      
     where to create the method
     "visibility": "protected",
     if the block configured don't exists it will create it.
     the block will be created at the end of the class.
     "create_visibility_block": true
 
-# Know issues:
-    If the command is triggered it will create a new statement, does not validate if it already exists.
+    ### Know issues:
+        If the command is triggered it will create a new statement, does not validate if it already exists.
+
+## Extract Method
+    
+    You select the snippet you want to extract and the plugin will identify which parameters
+     are required for the new method and includes in the new method. 
+    The new method will be inserted with the name "ExtractedMethod" you just need to write the
+     name you want to change everey declaration of the new method.
 
 ## Limitations
 
 Except the formatter all other plugins of this pack is based on this syntax: [sublime-delphi-language](https://bitbucket.org/JeisonJHA/sublime-delphi-language).
     
 ## Next steps
-    
-    ## Extract Method
-    
-    You select the snippet you want to extract and the plugin will identify which parameters
-     are required for the new method and includes in the new method. 
-    The new method will be inserted with the name "ExtractedMethod" you just need to write the
-     name you want to change the declaration will use and implementation of the method.
+
+    ## Function name display
+
+    Show the name of the method that the cursor is on, class name and visibility.
     
     ## Exchange method return
     
