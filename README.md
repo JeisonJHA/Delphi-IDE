@@ -99,6 +99,8 @@ Ex:
     The new method will be inserted with the name "ExtractedMethod" you just need to write the
      name you want to change everey declaration of the new method.
 
+* ctrl + shift + x
+
 ## Limitations
 
 Except the formatter all other plugins of this pack is based on this syntax: [sublime-delphi-language](https://bitbucket.org/JeisonJHA/sublime-delphi-language).
