@@ -41,7 +41,7 @@ class declaremethod(sublime_plugin.TextCommand):
         propertysregion = selector('meta.property.delphi')
 
         settings = sublime.load_settings(
-            'plugins-development.sublime-settings')
+            'delphi-ide.sublime-settings')
 
         if(view.match_selector(cursor_pt, 'interface.block.delphi') or
             (view.match_selector(cursor_pt, 'program.delphi') and
