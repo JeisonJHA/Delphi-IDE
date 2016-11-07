@@ -24,5 +24,12 @@
   "create_visibility_block": true,
 
   //----Extract Method
-  "extract_visibility": "private"
+  "extract_visibility": "private",
+
+  //---- Function Name Display
+  "display_file": false,
+  "display_class": false,
+  "display_function": true,
+  "display_arguments": false,
+  "display_visibility": true
 }

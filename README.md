@@ -101,20 +101,23 @@ Ex:
 
 * ctrl + shift + x
 
+## Function name display
+
+    Show the name of the method that the cursor is on, class name and visibility.
+
+## Exchange method return
+
+    Changes the return of the method, for procedure if you do not inform a return type or function if you do.
+
+* ctrl + alt + x
+
+## Syncronize method declaration
+
+    Syncronize the parameters of the method of implementation and interface with the method that is in scope.
+
+* ctrl + alt + q
+
 ## Limitations
 
 Except the formatter all other plugins of this pack is based on this syntax: [sublime-delphi-language](https://bitbucket.org/JeisonJHA/sublime-delphi-language).
     
-## Next steps
-
-    ## Function name display
-
-    Show the name of the method that the cursor is on, class name and visibility.
-    
-    ## Exchange method return
-    
-    Changes the return of the method, for procedure if you do not inform a return type or function if you do.
-    
-    ## Syncronize method declaration
-    
-    Syncronize the parameters of the method of implementation and interface with the method that is in scope.

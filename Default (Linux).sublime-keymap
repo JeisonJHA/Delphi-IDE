@@ -1,5 +1,9 @@
 [
-    { "keys": ["ctrl+shift+up"], "command": "delphi_method_nav" },
-    { "keys": ["ctrl+shift+g"], "command": "add_tag" },
-    { "keys": ["ctrl+shift+m"], "command": "add_doc" }
+    { "keys": ["ctrl+shift+up"], "command": "delphi_ide", "args": {"methodname": "delphimethodnav"}},
+    { "keys": ["ctrl+shift+m"], "command": "delphi_ide", "args": {"methodname": "adddoc"}},
+    { "keys": ["ctrl+shift+g"], "command": "delphi_ide", "args": {"methodname": "addtag"}},
+    { "keys": ["ctrl+shift+c"], "command": "delphi_ide", "args": {"methodname": "declaremethod"}},
+    { "keys": ["ctrl+shift+x"], "command": "delphi_ide", "args": {"methodname": "extractmethod"}},
+    { "keys": ["ctrl+alt+x"], "command": "delphi_ide", "args": {"methodname": "changefunctionreturn"}},
+    { "keys": ["ctrl+alt+q"], "command": "delphi_ide", "args": {"methodname": "syncronizemethoddeclaration"}}
 ]
