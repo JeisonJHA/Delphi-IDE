@@ -1,5 +1,5 @@
 import sublime_plugin
-from Plugins_Development import objectdef, adddoc
+from . import objectdef, adddoc
 
 
 class DelphiIdeCommand(sublime_plugin.TextCommand):

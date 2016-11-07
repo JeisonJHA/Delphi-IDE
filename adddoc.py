@@ -73,7 +73,6 @@ class Parser(object):
         def parse(self, info):
 
             result = ""
-            print('num:%s' % self.num)
             if 'summary' in info:
                 result += self.GetSummary()
             if 'value' in info:
@@ -273,7 +272,7 @@ class ClassDoc(object):
         view.sel().clear()
         view.sel().add(sublime.Region(classname[0].a, classname[0].a))
         view.run_command("insert_snippet", {"contents": "%s" % doc})
-        view.show_at_center(cursor_region[0])
+        view.show_at_center(cursor_region)
 
 
 class InterfaceDoc(object):
